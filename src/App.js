@@ -1,24 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
-
+//components
+import Header from "./Header/Header";
+import CoinsComponent from "./Coins/Coins";
+import Holdings from "./Holdings/Holdings";
+import Transactions from "./Transactions/Transactions";
+import Form from "./Form/Form";
+//modules
+import { useState } from "react";
+//contexts
+import CoinContext from "./_contexts/CoinContext";
 function App() {
+  const [coins, setCoins] = useState([]);
+
+  const globalVariables = { coins, setCoins };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <CoinContext.Provider value={globalVariables}>
+      <div className="App">
+        <Header />
+        <CoinsComponent />
+        <div className="stats">
+          <Holdings />
+          <Transactions />
+        </div>
+        <Form />
+      </div>
+    </CoinContext.Provider>
   );
 }
 

@@ -1,0 +1,36 @@
+.Form {
+  width: 50%;
+  height: 50%;
+  z-index: 10;
+}
+
+.Form-Header {
+  display: flex;
+  background: black;
+  color: white;
+  justify-content: space-between;
+}
+
+.Form-Close {
+  width: 10px;
+  cursor: pointer;
+}
+
+.Input {
+  display: flex;
+}
+.Input-Radio {
+  display: flex;
+  flex-direction: column;
+  width: 100px;
+}
+.Form-Button {
+  text-align: center;
+  width: 50px;
+  height: 20px;
+  background: grey;
+  color: white;
+  border-radius: 0.5em;
+  box-shadow: 1px 1px 3px 2px grey;
+  padding: 1.5%;
+}
