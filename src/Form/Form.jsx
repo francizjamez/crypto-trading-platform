@@ -1,5 +1,7 @@
 import "./Form.css";
-import { useState } from "react";
+import { useState, useContext } from "react";
+//contexts
+import CoinContext from "../_contexts/CoinContext";
 
 const data = {
   coinName: "Dogecoin",
@@ -9,11 +11,15 @@ const data = {
 
 const Form = () => {
   const [amount, setAmount] = useState(0);
+
+  const { currentCoin } = useContext(CoinContext);
+
+  const { id } = currentCoin;
   return (
     <div className="Form">
       <div className="Form-Header">
-        <h1> Buy {data.coinName} </h1>
-        <div className="Form-Close"> X </div>
+        <h1> Buy {id} </h1>
+        <button className="Form-Close"> X </button>
       </div>
       <div className="Form-content">
         <p> Current Price: {data.currentPrice}</p>

@@ -1,11 +1,18 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
 
 body {
-  font-size: calc(10px + (15 - 14) * ((100vw - 300px) / (1600 - 300)));
+  font-size: calc(10px + (15 - 13.5) * ((100vw - 300px) / (1600 - 300)));
+}
+
+button {
+  cursor: pointer;
 }
 
 .App {
@@ -13,7 +20,6 @@ body {
   flex-direction: column;
   align-items: center;
   gap: 1rem;
-
   padding: 2rem;
 }
 

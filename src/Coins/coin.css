@@ -8,12 +8,6 @@
   border-radius: 1rem;
 }
 
-.coin img {
-  width: 5rem;
-  height: 5rem;
-  border-radius: 50%;
-}
-
 .information {
   display: flex;
   flex-direction: column;

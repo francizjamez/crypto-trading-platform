@@ -24,7 +24,10 @@ const CoinsComponent = () => {
 
       setCoins([...coinsData]);
     }
-    getData();
+
+    let interval = setInterval(() => getData(), 5000);
+
+    return () => clearInterval(interval);
   }, []);
 
   return (
