@@ -3,29 +3,26 @@ import { useState, useContext } from "react";
 //contexts
 import CoinContext from "../_contexts/CoinContext";
 
-const data = {
-  coinName: "Dogecoin",
-  currentPrice: 0.511823,
-  wallet: 100,
-};
 
 const Form = () => {
   const [amount, setAmount] = useState(0);
 
-  const { currentCoin } = useContext(CoinContext);
-
+  const { currentCoin , showForm, setShowForm } = useContext(CoinContext);
   const { id } = currentCoin;
+  
+  console.log( 'form:', showForm )
   return (
-    <div className="Form">
+    showForm &&
+    <div className="Form ">
       <div className="Form-Header">
-        <h1> Buy {id} </h1>
-        <button className="Form-Close"> X </button>
+        <h1> Buy {currentCoin.coinName} </h1>
+        <div className="Form-Close" onClick={() => setShowForm(false)}> X </div>
       </div>
       <div className="Form-content">
-        <p> Current Price: {data.currentPrice}</p>
+        <p> Current Price: {currentCoin.currentPrice}</p>
         <div className="Input">
           <input type="text" value={amount} />
-          <p> Max: {data.wallet} </p>
+          <p> Max: {currentCoin.wallet} </p>
         </div>
         <div className="Input-Radio">
           <div className="buy">
