@@ -1,7 +1,22 @@
+.wrapper {
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  place-items: center;
+  position: absolute;
+  background: rgba(0, 0, 0, 0.616);
+  font-size: larger;
+}
+
 .Form {
-  width: 50%;
-  height: 50%;
   z-index: 10;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-size: 1.25rem;
 }
 
 .Form-Header {
@@ -12,8 +27,11 @@
 }
 
 .Form-Close {
-  width: 10px;
   cursor: pointer;
+  padding: 0 0.5rem;
+  background: red;
+  border: 1px solid black;
+  color: white;
 }
 
 .Input {
@@ -25,12 +43,9 @@
   width: 100px;
 }
 .Form-Button {
-  text-align: center;
-  width: 50px;
-  height: 20px;
   background: grey;
   color: white;
   border-radius: 0.5em;
   box-shadow: 1px 1px 3px 2px grey;
-  padding: 1.5%;
+  padding: 1rem 2rem;
 }

@@ -3,7 +3,6 @@ import { useState, useContext } from "react";
 //contexts
 import CoinContext from "../_contexts/CoinContext";
 
-
 const Form = () => {
   const [amount, setAmount] = useState(0);
   const [transactionType, setTransactionType] = useState("buy")
@@ -13,39 +12,39 @@ const Form = () => {
   const { currentCoin, showForm, setShowForm, wallet, setWallet } = useContext(CoinContext);
   const { name, market_data } = currentCoin;
   const currentPrice = market_data ? market_data.current_price.usd : 0
-  const Max =  market_data ? wallet / market_data.current_price.usd   : 0
+  const Max = market_data ? wallet / market_data.current_price.usd : 0
 
   const checkAmount = (e) => {
-   
-   
-      switch (transactionType) {
-        case 'buy':
-          setTotalPayment(prev => prev = currentPrice * (e.target.value) )
-          console.log('totalPayment:', totalPayment )
-          if ( totalPayment > wallet) {
-            setDisableButton(true)
-          } else {
-            setDisableButton(false)
-           
-          }
-          break;
-        case 'sell':
-          
-            break;
-        
-        default:
-          break;
-      }
-      setAmount(e.target.value)
-  
-  } 
 
-  const performTransaction = () => {
- 
+
     switch (transactionType) {
       case 'buy':
-        let totalPayment =  currentPrice * amount
-        setWallet( wallet - totalPayment)
+        setTotalPayment(currentPrice * (e.target.value))
+        console.log('totalPayment:', totalPayment)
+        if (totalPayment > wallet) {
+          setDisableButton(true)
+        } else {
+          setDisableButton(false)
+
+        }
+        break;
+      case 'sell':
+
+        break;
+
+      default:
+        break;
+    }
+    setAmount(e.target.value)
+
+  }
+
+  const performTransaction = () => {
+
+    switch (transactionType) {
+      case 'buy':
+        let totalPayment = currentPrice * amount
+        setWallet(wallet - totalPayment)
         break;
       case 'sell':
 
@@ -68,9 +67,9 @@ const Form = () => {
         <div className="Input">
           <input type="number" value={amount} onChange={checkAmount} />
           <p> Max: {Max} </p>
-        <div className='message'>
-          <p>You will be charged ${totalPayment}</p>
-        </div>
+          <div className='message'>
+            <p>You will be charged ${totalPayment}</p>
+          </div>
         </div>
         <div className="Input-Radio">
           <div className="transaction">
@@ -82,8 +81,9 @@ const Form = () => {
         </div>
         <button disabled={disableButton} className="Form-Button" onClick={performTransaction}>{transactionType}</button>
       </div>
-    </div>
-  );
-};
+      </div>
+    )
+  
+  }
 
 export default Form;

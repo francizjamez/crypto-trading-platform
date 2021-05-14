@@ -8,7 +8,7 @@ import CoinContext from "../_contexts/CoinContext";
 const Coin = (props) => {
   const { data } = props;
 
-  const { id, market_data, image } = data;
+  const { name, market_data, image } = data;
 
   const { setCurrentCoin, coins, setShowForm } = useContext(CoinContext);
 
@@ -17,7 +17,7 @@ const Coin = (props) => {
       <img src={image.small} alt="" />
       <div className="information">
         <h1>${market_data.current_price.usd}</h1>
-        <h2>{id}</h2>
+        <h2>{name}</h2>
         <p>
           Last 24h:{" "}
           <span
@@ -35,8 +35,7 @@ const Coin = (props) => {
   );
 
   function toggleForm() {
-    let coinName = coins.find((coin) => coin.id === id);
-
+    let coinName = coins.find((coin) => coin.name === name);
     setCurrentCoin(coinName);
     setShowForm(true)
   }
