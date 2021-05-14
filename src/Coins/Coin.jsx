@@ -10,7 +10,7 @@ const Coin = (props) => {
 
   const { id, market_data, image } = data;
 
-  const { setCurrentCoin, coins } = useContext(CoinContext);
+  const { setCurrentCoin, coins, setShowForm } = useContext(CoinContext);
 
   return (
     <button className="coin" onClick={toggleForm}>
@@ -38,6 +38,7 @@ const Coin = (props) => {
     let coinName = coins.find((coin) => coin.id === id);
 
     setCurrentCoin(coinName);
+    setShowForm(true)
   }
 };
 

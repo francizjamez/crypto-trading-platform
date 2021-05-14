@@ -6,12 +6,56 @@ import CoinContext from "../_contexts/CoinContext";
 
 const Form = () => {
   const [amount, setAmount] = useState(0);
-  const [transactionType, setTransactionType ] = useState("buy")
+  const [transactionType, setTransactionType] = useState("buy")
+  const [disableButton, setDisableButton] = useState(false)
+  const [totalPayment, setTotalPayment] = useState(0)
 
-  const { currentCoin , showForm, setShowForm, wallet, setWallet } = useContext(CoinContext);
+  const { currentCoin, showForm, setShowForm, wallet, setWallet } = useContext(CoinContext);
   const { name, market_data } = currentCoin;
+  const currentPrice = market_data ? market_data.current_price.usd : 0
+  const Max =  market_data ? wallet / market_data.current_price.usd   : 0
+
+  const checkAmount = (e) => {
+   
+   
+      switch (transactionType) {
+        case 'buy':
+          setTotalPayment(prev => prev = currentPrice * (e.target.value) )
+          console.log('totalPayment:', totalPayment )
+          if ( totalPayment > wallet) {
+            setDisableButton(true)
+          } else {
+            setDisableButton(false)
+           
+          }
+          break;
+        case 'sell':
+          
+            break;
+        
+        default:
+          break;
+      }
+      setAmount(e.target.value)
   
-  console.log( currentCoin )
+  } 
+
+  const performTransaction = () => {
+ 
+    switch (transactionType) {
+      case 'buy':
+        let totalPayment =  currentPrice * amount
+        setWallet( wallet - totalPayment)
+        break;
+      case 'sell':
+
+        break;
+
+      default:
+        break;
+    }
+
+  }
   return (
     showForm &&
     <div className="Form ">
@@ -20,20 +64,23 @@ const Form = () => {
         <div className="Form-Close" onClick={() => setShowForm(false)}> X </div>
       </div>
       <div className="Form-content">
-        <p> Current Price: {market_data.current_price.usd}</p>
+        <p> Current Price: {currentPrice}</p>
         <div className="Input">
-          <input type="text" value={amount} />
-          <p> Max: {currentCoin.wallet} </p>
+          <input type="number" value={amount} onChange={checkAmount} />
+          <p> Max: {Max} </p>
+        <div className='message'>
+          <p>You will be charged ${totalPayment}</p>
+        </div>
         </div>
         <div className="Input-Radio">
           <div className="transaction">
-            <input type="radio" value="buy" name="transaction" onClick/> Buy
+            <input type="radio" value="buy" name="transaction" onClick={() => setTransactionType('buy')} defaultChecked /> Buy
           </div>
           <div className="sell">
-            <input type="radio" value="sell" name="transaction" /> Sell
+            <input type="radio" value="sell" name="transaction" onClick={() => setTransactionType('sell')} /> Sell
           </div>
         </div>
-        <div className="Form-Button" onClick={buyCoins}>Buy</div>
+        <button disabled={disableButton} className="Form-Button" onClick={performTransaction}>{transactionType}</button>
       </div>
     </div>
   );
