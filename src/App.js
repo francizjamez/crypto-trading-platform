@@ -13,6 +13,7 @@ function App() {
   const [holdings, setHoldings] = useState([]);
   const [currentCoin, setCurrentCoin] = useState(0);
   const [showForm, setShowForm] = useState(false);
+  const [wallet, setWallet] = useState(100)
 
   const globalVariables = {
     coins,
@@ -23,6 +24,8 @@ function App() {
     setCurrentCoin,
     showForm,
     setShowForm,
+    wallet,
+    setWallet
   };
 
   return (

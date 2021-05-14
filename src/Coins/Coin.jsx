@@ -37,7 +37,7 @@ const Coin = (props) => {
   function toggleForm() {
     let coinName = coins.find((coin) => coin.name === name);
     setCurrentCoin(coinName);
-    setShowForm(true);
+    setShowForm(true)
   }
 };
 
