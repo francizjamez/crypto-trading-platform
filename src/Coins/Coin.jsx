@@ -18,7 +18,18 @@ const Coin = (props) => {
       <div className="information">
         <h1>${market_data.current_price.usd}</h1>
         <h2>{id}</h2>
-        <p>Last 24h: {market_data.price_change_percentage_24h}%</p>
+        <p>
+          Last 24h:{" "}
+          <span
+            className={
+              market_data.price_change_percentage_24h > 0
+                ? "positive"
+                : "negative"
+            }
+          >
+            {market_data.price_change_percentage_24h}%
+          </span>
+        </p>
       </div>
     </button>
   );

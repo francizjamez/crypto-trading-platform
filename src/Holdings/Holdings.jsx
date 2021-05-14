@@ -16,7 +16,7 @@ const data = [
     amount: 50,
     total_paid: 25,
     current_value: 24,
-    pl: 0.09,
+    pl: -10,
   },
 ];
 

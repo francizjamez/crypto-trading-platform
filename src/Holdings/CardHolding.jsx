@@ -13,7 +13,7 @@ const CardHolding = (props) => {
       <h2>
         Total Paid: ${total_paid}, Current Value: ${current_value}
       </h2>
-      <h2>P/L: {pl}</h2>
+      <h2 className={pl > 0 ? "positive" : "negative"}>P/L: ${pl}</h2>
     </div>
   );
 };

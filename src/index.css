@@ -40,3 +40,10 @@ button {
   flex-direction: column;
   gap: 0.5rem;
 }
+
+.negative {
+  color: red;
+}
+.positive {
+  color: green;
+}

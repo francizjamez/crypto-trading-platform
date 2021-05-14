@@ -9,6 +9,7 @@ const data = [
     total_paid: 25,
     current_value: 24,
     pl: 0.09,
+    isBuy: true,
   },
   {
     coinName: "Dogecoin",
@@ -16,6 +17,7 @@ const data = [
     total_paid: 25,
     current_value: 24,
     pl: 0.09,
+    isBuy: false,
   },
 ];
 

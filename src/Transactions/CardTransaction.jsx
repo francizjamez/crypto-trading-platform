@@ -1,10 +1,12 @@
 import React from "react";
+//css
+import "./card-transaction.css";
 
 const CardTransaction = (props) => {
   let { data } = props;
-  let { coinName, amount, total_paid, current_value, pl } = data;
+  let { coinName, amount, total_paid, current_value, pl, isBuy } = data;
   return (
-    <div className="card-holding">
+    <div className={`card-holding ${isBuy ? "buy" : "sell"}`}>
       <h2>
         {coinName}: {amount}
       </h2>
