@@ -25,15 +25,16 @@ const CoinsComponent = () => {
       setCoins([...coinsData]);
     }
 
+    getData();
     let interval = setInterval(() => getData(), 5000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [setCoins]);
 
   return (
     <div className="coins-container">
-      {coins.map((coin) => (
-        <Coin data={coin} />
+      {coins.map((coin, i) => (
+        <Coin data={coin} key={i} />
       ))}
     </div>
   );

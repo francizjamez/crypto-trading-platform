@@ -11,7 +11,6 @@ const Form = () => {
     useContext(CoinContext);
   const { name, market_data } = currentCoin;
 
-  console.log(currentCoin);
   return (
     showForm && (
       <div className="wrapper">
