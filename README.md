@@ -18,7 +18,7 @@ We will be making a fully functional trading simulator. You should be able to:
 
 ### Components and data
 
-![](./screenshots\components_and_data.png)
+![](./screenshots/components_and_data.png)
 
 ### Style Guide
 
