@@ -8,7 +8,7 @@
 }
 
 body {
-  font-size: calc(10px + (15 - 13.5) * ((100vw - 300px) / (1600 - 300)));
+  /* font-size: calc(10px + (15 - 13.5) * ((100vw - 300px) / (1600 - 300))); */
 }
 
 button {

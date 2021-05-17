@@ -20,7 +20,7 @@ const Form = () => {
       case "buy":
         setTotalPayment(currentPrice * e.target.value);
         console.log("totalPayment:", totalPayment);
-        if (totalPayment > wallet) {
+        if (currentPrice * e.target.value > wallet) {
           setDisableButton(true);
         } else {
           setDisableButton(false);
@@ -54,10 +54,9 @@ const Form = () => {
         <div className="Form ">
           <div className="Form-Header">
             <h1> Buy {name} </h1>
-            <div className="Form-Close" onClick={() => setShowForm(false)}>
-              {" "}
-              X{" "}
-            </div>
+            <button className="Form-Close" onClick={() => setShowForm(false)}>
+              X
+            </button>
           </div>
           <div className="Form-content">
             <p> Current Price: {currentPrice}</p>
@@ -79,7 +78,7 @@ const Form = () => {
                 />{" "}
                 Buy
               </div>
-              <div className="sell">
+              <div className="">
                 <input
                   type="radio"
                   value="sell"
