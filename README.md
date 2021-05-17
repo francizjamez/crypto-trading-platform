@@ -17,7 +17,7 @@ We will be making a fully functional trading simulator. You should be able to:
 - Flow diagram?
 
 Components and data
-![](./screenshots\Components and data.png)
+![](./screenshots\components_and_data.png)
 
 ### Style Guide
 
