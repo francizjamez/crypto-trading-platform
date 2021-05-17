@@ -16,7 +16,8 @@ We will be making a fully functional trading simulator. You should be able to:
 - How the information will be flowing in the app?
 - Flow diagram?
 
-Components and data
+### Components and data
+
 ![](./screenshots\components_and_data.png)
 
 ### Style Guide
