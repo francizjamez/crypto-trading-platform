@@ -15,6 +15,7 @@
   background-color: white;
   display: flex;
   flex-direction: column;
+  width: 425px;
 }
 
 label {
@@ -50,4 +51,8 @@ label {
   border-radius: 0.5em;
   box-shadow: 1px 1px 3px 2px grey;
   padding: 1rem 2rem;
+}
+
+.enabled {
+  background-color: blue;
 }

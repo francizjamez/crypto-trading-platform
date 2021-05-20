@@ -8,12 +8,22 @@ import Form from "./Form/Form";
 import { useState } from "react";
 //contexts
 import CoinContext from "./_contexts/CoinContext";
+
+const coinNames = ["Bitcoin", "Ethereum", "Dogecoin"];
+
 function App() {
   const [coins, setCoins] = useState([]);
-  const [holdings, setHoldings] = useState([]);
+  const [holdings, setHoldings] = useState(
+    coinNames.map((el) => ({
+      coinName: el,
+      amount: 0,
+      total_paid: 0,
+    }))
+  );
   const [currentCoin, setCurrentCoin] = useState(0);
   const [showForm, setShowForm] = useState(false);
-  const [wallet, setWallet] = useState(100)
+  const [wallet, setWallet] = useState(100);
+  const [transactions, setTransactions] = useState([]);
 
   const globalVariables = {
     coins,
@@ -25,7 +35,9 @@ function App() {
     showForm,
     setShowForm,
     wallet,
-    setWallet
+    setWallet,
+    transactions,
+    setTransactions,
   };
 
   return (
