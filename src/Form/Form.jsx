@@ -27,7 +27,7 @@ const Form = () => {
   useEffect(() => {
     setMax((wallet / currentPrice).toFixed(6));
     setTransactionType("buy");
-  }, [showForm]);
+  }, [showForm, currentPrice, wallet, setMax, setTransactionType]);
 
   useEffect(() => {
     setTotalPayment((currentPrice * amount).toFixed(2));
@@ -51,8 +51,9 @@ const Form = () => {
         }
 
         break;
+      default:
     }
-  }, [transactionType]);
+  }, [transactionType, amount, currentPrice, holdings, name, wallet]);
 
   useEffect(() => {
     setTotalPayment((currentPrice * amount).toFixed(2));
@@ -74,7 +75,7 @@ const Form = () => {
       default:
         break;
     }
-  }, [amount, showForm]);
+  }, [amount, showForm, currentPrice, max, transactionType, wallet]);
 
   const checkAmount = (e) => {
     setAmount(e.target.value);

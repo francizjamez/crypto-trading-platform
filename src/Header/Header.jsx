@@ -8,7 +8,7 @@ import CoinContext from "../_contexts/CoinContext";
 const Header = () => {
   const { wallet } = useContext(CoinContext);
 
-  const [porfolio, setPorfolio] = useState(0);
+  const [porfolio] = useState(0);
   return (
     <div className="Header">
       <h1> Earn some virtual money</h1>
